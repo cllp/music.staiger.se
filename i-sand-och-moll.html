@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions: I Sand och Moll — Philip Staiger</title>
+    <meta name="description" content="Sessions: I Sand och Moll (feat. Blomgren) — debutalbum av Philip Staiger. Desert blues och world music inspelat på Gotland. Släpps 10 april 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+            background: #0a0a0f;
+            color: #e8e4df;
+            min-height: 100vh;
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Back link */
+        .back {
+            display: inline-block;
+            color: #8a8580;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .back:hover {
+            border-color: #8a8580;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .artwork {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 2rem;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .artwork-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2030, #2a3040);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #667;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: #f0ece6;
+            margin-bottom: 0.3rem;
+        }
+
+        .featuring {
+            font-size: 1rem;
+            color: #8a8580;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-link {
+            font-size: 0.9rem;
+            color: #c4b9a8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(196, 185, 168, 0.3);
+        }
+
+        .artist-link:hover {
+            border-color: #c4b9a8;
+        }
+
+        /* Dividers */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            margin: 2rem auto;
+        }
+
+        /* Pre-save button */
+        .presave {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .presave a {
+            display: inline-block;
+            background: #1DB954;
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            font-family: sans-serif;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .presave a:hover {
+            background: #1ed760;
+        }
+
+        /* Info section */
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #8a8580;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #b0aaa2;
+            margin-bottom: 0.5rem;
+        }
+
+        .description p {
+            margin-bottom: 1rem;
+        }
+
+        /* Release details */
+        .details {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #8a8580;
+        }
+
+        .detail-value {
+            color: #d4cfc8;
+            text-align: right;
+        }
+
+        /* Tracklist */
+        .tracklist {
+            list-style: none;
+            counter-reset: track;
+        }
+
+        .tracklist li {
+            counter-increment: track;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.9rem;
+            color: #b0aaa2;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .tracklist li::before {
+            content: counter(track) ".";
+            color: #666;
+            min-width: 1.5rem;
+        }
+
+        .tracklist li:last-child {
+            border-bottom: none;
+        }
+
+        .tracklist .note {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Credits */
+        .credits {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #8a8580;
+        }
+
+        .credits p {
+            margin-bottom: 0.3rem;
+        }
+
+        .credits strong {
+            color: #b0aaa2;
+            font-weight: 400;
+        }
+
+        .memorial {
+            font-style: italic;
+            color: #999;
+            margin-top: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="index.html" class="back">← Philip Staiger</a>
+
+        <header>
+            <div class="artwork">
+                <img src="artwork.jpg" alt="Sessions: I Sand & Moll — Philip Staiger feat. Blomgren" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <h1>Sessions: I Sand och Moll</h1>
+            <p class="featuring">feat. Blomgren</p>
+            <a href="index.html" class="artist-link">Philip Staiger</a>
+        </header>
+
+        <div class="presave">
+            <a href="https://distrokid.com/hyperfollow/philipstaiger/vi-r-en-blues-feat-blomgren">♫ Förhandsspara på Spotify</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="section-title">Om albumet</p>
+        <div class="description">
+            <p>Debutalbumet Sessions: I Sand och Moll är inspelat på Gotland med sångaren och textförfattaren Fredrik Blomgren. Soundet hämtar inspiration från desert blues, world music och nordisk folk.</p>
+            <p>Philip Staiger spelar trummor, slagverk, bas, gitarrer och piano. Musiker från den gotländska musikscenen bidrar med fiol, saxofon, trumpet och trestämmig kör.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="section-title">Releasedatum</p>
+        <div class="details">
+            <div class="detail-row">
+                <span class="detail-label">Singel 1</span>
+                <span class="detail-value">"Vi är en blues" — 13 mars 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Singel 2</span>
+                <span class="detail-value">"Ro mig över floden" — 20 mars 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Singel 3</span>
+                <span class="detail-value">"I det svarta" — 27 mars 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Album</span>
+                <span class="detail-value">10 april 2026 · 7 låtar</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="section-title">Låtlista</p>
+        <ol class="tracklist">
+            <li>Vi är en blues</li>
+            <li>Lord Elgin i Vineta</li>
+            <li>Ro mig över floden</li>
+            <li>I det svarta</li>
+            <li>Homo Ludens</li>
+            <li>Vi är vackrare</li>
+            <li>Grön poesi</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <p class="section-title">Medverkande</p>
+        <div class="credits">
+            <p><strong>Philip Staiger</strong> — musik, komposition, trummor, slagverk, bas, gitarrer, piano, producent, inspelning</p>
+            <p><strong>Fredrik Blomgren</strong> — text, sång, arrangemang</p>
+            <p><strong>Linus Larsson</strong> — elgitarr, ljuddesign, mixning, mastering</p>
+            <p><strong>Steve Chadwick</strong> — trumpet</p>
+            <p><strong>Tomas Johansson</strong> — saxofon</p>
+            <p><strong>Richard Hellgren</strong> — fiol</p>
+            <p><strong>Vendela Blomgren, Ylva Olsson, Sara Boström</strong> — kör</p>
+            <p class="memorial">Till minne av Richard Hellgren</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="details">
+            <div class="detail-row">
+                <span class="detail-label">Genre</span>
+                <span class="detail-value">Blues / World / Desert Blues</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Språk</span>
+                <span class="detail-value">Svenska</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Label</span>
+                <span class="detail-value">Philip Staiger</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">© ℗</span>
+                <span class="detail-value">2026 Philip Staiger</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="text-align: center;">
+            <a href="index.html" class="back">← Tillbaka</a>
+        </p>
+
+    </div>
+</body>
+</html>
