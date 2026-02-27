@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Studio™ Visby — Philip Staiger</title>
+    <meta name="description" content="Boutique Studio™ in Visby, Gotland — recording, sessions and rehearsal. Analog warmth, vintage gear and a creative space built for the moment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #e8e4df;
+            --text-muted: #b0aaa2;
+            --text-dim: #8a8580;
+            --text-faint: #5a5550;
+            --accent: #c9a84c;
+            --accent-bg: rgba(201,168,76,0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-name:hover { opacity: 0.7; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 420px;
+            max-height: 650px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 50%;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 50%, rgba(10,10,15,0.3) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 3.5rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 400;
+            color: #f0ece6;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-content .tagline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .body-text {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 640px;
+        }
+
+        .body-text p { margin-bottom: 1rem; }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .gallery-img {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.05);
+            transition: filter 0.3s;
+        }
+
+        .gallery-img:hover img {
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        /* EQUIPMENT */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .equipment-column h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .equipment-list {
+            list-style: none;
+        }
+
+        .equipment-list li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 0.45rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .equipment-list li span {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 1.75rem;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.6rem;
+        }
+
+        .service-card .desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .service-card .details {
+            font-size: 0.78rem;
+            color: var(--text-faint);
+            line-height: 1.6;
+        }
+
+        .service-card .details strong {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* QUOTE */
+        .quote-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quote-section blockquote {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 2rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: var(--text-faint);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--text-muted); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .gallery,
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 45vh;
+                min-height: 300px;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { animation: fadeUp 0.6s ease-out both; }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Philip Staiger</a>
+            <div class="nav-links">
+                <a href="#equipment">Equipment</a>
+                <a href="#services">Services</a>
+                <a href="mailto:claes-philip@staiger.se">Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="studio-1.jpeg" alt="Boutique Studio™ — drums, instruments, vintage gear">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Boutique Studio™</h1>
+            <p class="tagline">Visby · Gotland</p>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section">
+        <p class="section-header">The Space</p>
+        <div class="gallery">
+            <div class="gallery-img">
+                <img src="studio-1.jpeg" alt="Boutique Studio — drums and instruments">
+            </div>
+            <div class="gallery-img">
+                <img src="studio-2.jpeg" alt="Boutique Studio — recording space">
+            </div>
+        </div>
+        <div class="body-text">
+            <p>A creative studio in the heart of Visby — set among chandeliers, vintage jackets and instruments lining every wall. Built to capture the moment, not to impress with square meters.</p>
+            <p>The Ludwig 1963 kit and Roland TD-50 electronic drums are always ready. Guitars hang on the walls, the Allen & Heath console runs straight into Logic Pro through UAD plugins. Everything you need to record, rehearse or just hang out and create.</p>
+        </div>
+    </div>
+
+    <!-- EQUIPMENT -->
+    <div class="section" id="equipment">
+        <p class="section-header">Equipment</p>
+        <div class="equipment-grid">
+            <div class="equipment-column">
+                <h3>Instruments</h3>
+                <ul class="equipment-list">
+                    <li><span>Acoustic Drums</span> — Ludwig 1963</li>
+                    <li><span>Electronic Drums</span> — Roland TD-50</li>
+                    <li><span>Piano</span> — Donner stage piano</li>
+                    <li><span>Guitars</span> — Gibson, Epiphone</li>
+                    <li><span>Bass</span> — Ibanez</li>
+                    <li><span>Percussion</span> — Meinl</li>
+                </ul>
+            </div>
+            <div class="equipment-column">
+                <h3>Recording</h3>
+                <ul class="equipment-list">
+                    <li><span>Microphones</span> — SM57 + condensers</li>
+                    <li><span>Interface</span> — Universal Audio Volt</li>
+                    <li><span>Console</span> — Allen & Heath</li>
+                    <li><span>Monitors</span> — DynAudio</li>
+                    <li><span>DAW</span> — Logic Pro</li>
+                    <li><span>Plugins</span> — 20× UAD</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section" id="services">
+        <p class="section-header">Services</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-tag">Recording</span>
+                <h3>Recording Session</h3>
+                <p class="desc">Book the studio with Philip as producer and engineer. Analog drums, real microphones and UAD processing. Mixing and production included.</p>
+                <p class="details"><strong>Format:</strong> Half day (4h) · Full day (8h) · Multi-day<br><strong>Includes:</strong> Studio, gear, producer, mixing</p>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Sessions</span>
+                <h3>Creative Session</h3>
+                <p class="desc">Come in and play. No expectations, no pressure — just music-making. Perfect for trying out ideas, jamming or starting something new.</p>
+                <p class="details"><strong>Format:</strong> Drop-in (2–3h) · Half day<br><strong>Includes:</strong> Studio, instruments, basic recording</p>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Rehearsal</span>
+                <h3>Rehearsal Space</h3>
+                <p class="desc">Practice in an inspiring environment with real instruments and great sound. Drums, piano, guitars and amps — everything ready to go.</p>
+                <p class="details"><strong>Format:</strong> Per hour · Evening session (3h)<br><strong>Includes:</strong> Space, instruments, PA</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="quote-section">
+        <blockquote>Every session is unique.<br>Every constellation is new.</blockquote>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Book a session</h2>
+        <p>Gotland, Sweden</p>
+        <a href="mailto:claes-philip@staiger.se" class="cta-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            claes-philip@staiger.se
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Boutique Studio™ · Visby · Gotland · <a href="index.html">Philip Staiger</a></p>
+    </footer>
+
+</body>
+</html>

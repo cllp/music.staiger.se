@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Staiger — Musician · Composer · Producer</title>
+    <meta name="description" content="Philip Staiger — instrumentalist, drummer and composer based on the island of Gotland, Sweden. Desert blues, world music and Nordic folk.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-elevated: #111116;
+            --bg-card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #e8e4df;
+            --text-muted: #b0aaa2;
+            --text-dim: #8a8580;
+            --text-faint: #5a5550;
+            --accent: #c9a84c;
+            --accent-bg: rgba(201,168,76,0.1);
+            --spotify: #1DB954;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-name:hover { opacity: 0.7; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* ---- HERO ---- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 450px;
+            max-height: 700px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 50%, rgba(10,10,15,0.3) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 4rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 400;
+            color: #f0ece6;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-content .tagline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+        }
+
+        /* ---- SECTIONS ---- */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .body-text {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 640px;
+        }
+
+        .body-text p { margin-bottom: 1rem; }
+
+        /* ---- BIO GRID ---- */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .bio-text {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+        }
+
+        .bio-text p { margin-bottom: 1rem; }
+
+        .bio-image {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .bio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85) contrast(1.05);
+        }
+
+        /* ---- LISTEN ---- */
+        .listen-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .spotify-embed {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spotify-embed iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+
+        .release-info h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .release-meta {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 1.25rem;
+        }
+
+        .release-description {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .release-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.6rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .release-link:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        /* ---- STUDIO ---- */
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .studio-img {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .studio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.05);
+            transition: filter 0.3s;
+        }
+
+        .studio-img:hover img {
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        .studio-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .detail-column h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .detail-list li span {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        /* ---- SERVICES ---- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-dim);
+        }
+
+        /* ---- STUDIO CTA ---- */
+        .studio-cta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 2rem 2.25rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .studio-cta:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .studio-cta-text {
+            flex: 1;
+        }
+
+        .studio-cta-text h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .studio-cta-text p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+        }
+
+        .studio-cta-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            transition: gap 0.2s;
+        }
+
+        .studio-cta-arrow {
+            flex-shrink: 0;
+            color: var(--text-dim);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .studio-cta:hover .studio-cta-arrow {
+            transform: translateX(4px);
+            color: var(--text);
+        }
+
+        /* ---- CONTACT ---- */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-section p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: var(--text-faint);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--text-muted); }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .bio-grid,
+            .listen-grid,
+            .studio-grid,
+            .studio-details {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .hero-content {
+                bottom: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { animation: fadeUp 0.6s ease-out both; }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.15s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="https://staiger.se" class="nav-name">Claes-Philip Staiger</a>
+            <div class="nav-links">
+                <a href="#listen">Listen</a>
+                <a href="#studio">Studio</a>
+                <a href="mailto:claes-philip@staiger.se">Contact</a>
+                <a href="https://open.spotify.com/artist/0rezbH452IX4W0tMudVba1" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="banner.jpg" alt="Philip Staiger — studio, drums, piano">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Philip Staiger</h1>
+            <p class="tagline">Musician · Composer · Producer</p>
+        </div>
+    </div>
+
+    <!-- BIO -->
+    <div class="section">
+        <p class="section-header">About</p>
+        <div class="bio-grid">
+            <div class="bio-text">
+                <p>Instrumentalist, drummer and composer based on the island of Gotland, Sweden. Recording from a boutique studio in Visby — writing, arranging and playing drums, percussion, bass, guitars and piano.</p>
+                <p>The sound moves between desert blues, world music and Nordic folk — earthy, grooving and warm. Every release is a new session, a new constellation.</p>
+            </div>
+            <div class="bio-image">
+                <img src="studio-2.jpeg" alt="Philip Staiger in the studio">
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTEN -->
+    <div class="section" id="listen">
+        <p class="section-header">Latest Release</p>
+        <div class="listen-grid">
+            <div class="spotify-embed">
+                <iframe src="https://open.spotify.com/embed/artist/0rezbH452IX4W0tMudVba1?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="release-info">
+                <h3>Sessions: I Sand och Moll</h3>
+                <p class="release-meta">feat. Blomgren · Album · April 10, 2026 · 7 tracks</p>
+                <p class="release-description">Debut album recorded on Gotland with singer-songwriter Fredrik Blomgren. Desert blues meets Nordic folk — analog drums, real instruments and musicians from the Gotland music scene contributing violin, saxophone, trumpet and three-part choir.</p>
+                <a href="i-sand-och-moll.html" class="release-link">
+                    Full tracklist & credits →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDIO -->
+    <div class="section" id="studio">
+        <p class="section-header">Boutique Studio™ · Visby</p>
+        <div class="studio-grid">
+            <div class="studio-img">
+                <img src="studio-1.jpeg" alt="Boutique Studio — drums and instruments">
+            </div>
+            <div class="studio-img">
+                <img src="studio-2.jpeg" alt="Boutique Studio — recording space">
+            </div>
+        </div>
+        <a href="studio.html" class="studio-cta">
+            <div class="studio-cta-text">
+                <h3>Boutique Studio™</h3>
+                <p>A creative studio in the heart of Visby. Recording, sessions and rehearsal with analog drums, real instruments and UAD processing.</p>
+                <span class="studio-cta-link">Equipment, services & booking →</span>
+            </div>
+            <div class="studio-cta-arrow">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+        </a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <h2>Get in touch</h2>
+        <p>Gotland, Sweden</p>
+        <a href="mailto:claes-philip@staiger.se" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            claes-philip@staiger.se
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Philip Staiger · <a href="https://staiger.se">staiger.se</a></p>
+    </footer>
+
+</body>
+</html>
