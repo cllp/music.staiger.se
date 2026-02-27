@@ -202,25 +202,11 @@
         }
 
         /* ---- LISTEN ---- */
-        .release-hero {
+        .listen-grid {
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 2.5rem;
             align-items: start;
-            margin-bottom: 2.5rem;
-        }
-
-        .album-artwork {
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-            aspect-ratio: 1;
-        }
-
-        .album-artwork img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .release-info h3 {
@@ -514,7 +500,7 @@
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             .bio-grid,
-            .release-hero,
+            .listen-grid,
             .studio-grid,
             .studio-details {
                 grid-template-columns: 1fr;
@@ -522,20 +508,6 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .release-hero {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                text-align: center;
-            }
-
-            .album-artwork {
-                max-width: 260px;
-            }
-
-            .release-actions {
-                justify-content: center;
             }
 
             .hero {
@@ -611,9 +583,9 @@
     <!-- LISTEN -->
     <div class="section" id="listen">
         <p class="section-header">Latest Release</p>
-        <div class="release-hero">
-            <div class="album-artwork">
-                <img src="album-1.jpg" alt="Sessions: I Sand och Moll — Philip Staiger feat. Blomgren">
+        <div class="listen-grid">
+            <div class="spotify-embed">
+                <iframe src="https://open.spotify.com/embed/artist/0rezbH452IX4W0tMudVba1?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
             <div class="release-info">
                 <h3>Sessions: I Sand och Moll</h3>
@@ -630,9 +602,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="spotify-embed">
-            <iframe src="https://open.spotify.com/embed/artist/0rezbH452IX4W0tMudVba1?utm_source=generator&theme=0" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     </div>
 
