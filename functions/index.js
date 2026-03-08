@@ -1,5 +1,5 @@
 /**
- * Session Planner — Firebase Cloud Functions
+ * Sessions — Firebase Cloud Functions
  *
  * Sends email notifications when documents are added to the 'mail' collection.
  * Uses Gmail SMTP with an App Password for sending.
@@ -76,7 +76,7 @@ exports.sendEmailNotification = onDocumentCreated(
 
     try {
       await transport.sendMail({
-        from: `"Session Planner" <${process.env.MAIL_USER}>`,
+        from: `"Sessions" <${process.env.MAIL_USER}>`,
         to,
         subject: message.subject,
         html: message.html || "",
@@ -126,14 +126,14 @@ exports.sendNotificationDigest = onDocumentCreated(
       const items = notifs.map(n => `<li style="padding:4px 0">${n.message}</li>`).join("");
       try {
         await transport.sendMail({
-          from: `"Session Planner" <${process.env.MAIL_USER}>`,
+          from: `"Sessions" <${process.env.MAIL_USER}>`,
           to: user.email,
-          subject: `🎵 Session Planner — ${notifs.length} nya notiser`,
+          subject: `🎵 Sessions — ${notifs.length} nya notiser`,
           html: `<div style="font-family:system-ui;max-width:500px">
-            <h2 style="color:#c9a84c">Session Planner</h2>
+            <h2 style="color:#c9a84c">Sessions</h2>
             <p>Hej ${user.name}! Du har ${notifs.length} olästa notiser:</p>
             <ul style="list-style:none;padding:0">${items}</ul>
-            <p><a href="https://music.staiger.se/calendar/" style="display:inline-block;padding:10px 20px;background:#c9a84c;color:#0a0a0f;text-decoration:none;border-radius:8px;font-weight:bold">Öppna Session Planner</a></p>
+            <p><a href="https://music.staiger.se/calendar/" style="display:inline-block;padding:10px 20px;background:#c9a84c;color:#0a0a0f;text-decoration:none;border-radius:8px;font-weight:bold">Öppna Sessions</a></p>
           </div>`,
         });
         console.log(`Digest sent to ${user.email} (${notifs.length} notifications)`);
