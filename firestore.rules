@@ -35,6 +35,18 @@ service cloud.firestore {
     match /config/{configId} {
       allow read, write: if request.auth != null;
     }
+    // Projects
+    match /projects/{projectId} {
+      allow read, write: if request.auth != null;
+    }
+    // Project resources
+    match /projectResources/{resourceId} {
+      allow read, write: if request.auth != null;
+    }
+    // User resources (Mitt bibliotek)
+    match /userResources/{resourceId} {
+      allow read, write: if request.auth != null;
+    }
     // Mail queue (for Cloud Functions email sending)
     match /mail/{mailId} {
       allow create: if request.auth != null;
