@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Equipment — Boutique Studio™ | Philip Staiger</title>
+    <meta name="description" content="Studio equipment at Boutique Studio™ in Visby, Gotland — Ludwig drums, studio microphones, amps, pedals and Allen & Heath + Logic Pro workflow.">
+    <meta name="keywords" content="studio equipment Gotland, microphones Visby, Ludwig drums, recording gear, Boutique Studio, Philip Staiger">
+    <link rel="canonical" href="https://music.staiger.se/equipment/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Studio Equipment — Boutique Studio™">
+    <meta property="og:description" content="Drums, microphones, amps and recording tools at Boutique Studio™ in Visby, Gotland.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://music.staiger.se/equipment/">
+    <meta property="og:image" content="https://music.staiger.se/studio-1.jpeg">
+    <meta property="og:site_name" content="Philip Staiger Music">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Studio Equipment — Boutique Studio™">
+    <meta name="twitter:description" content="Drums, microphones, amps and recording tools at Boutique Studio™ in Visby, Gotland.">
+    <meta name="twitter:image" content="https://music.staiger.se/studio-1.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #e8e4df;
+            --text-muted: #b0aaa2;
+            --text-dim: #8a8580;
+            --text-faint: #5a5550;
+            --accent: #c9a84c;
+            --accent-bg: rgba(201,168,76,0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-name:hover { opacity: 0.7; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a[aria-current="page"] { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 420px;
+            max-height: 650px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 50%;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 50%, rgba(10,10,15,0.3) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 3.5rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 400;
+            color: #f0ece6;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-content .tagline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .body-text {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            max-width: 640px;
+        }
+
+        .body-text p { margin-bottom: 1rem; }
+
+        /* INVENTORY GRID (service-card language from studio.html) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .services-grid--2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .card-silhouette {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 96px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+        }
+
+        .card-silhouette img {
+            width: 52px;
+            height: 52px;
+            opacity: 0.9;
+        }
+
+        .service-card--wide .card-silhouette {
+            height: 112px;
+        }
+
+        .service-card--wide .card-silhouette img {
+            width: 64px;
+            height: 64px;
+        }
+
+        .service-card-body {
+            padding: 2rem 1.75rem;
+        }
+
+        .service-card--compact .service-card-body {
+            padding: 1.5rem 1.35rem 1.65rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.6rem;
+        }
+
+        .service-card--compact h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .service-card .desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-dim);
+        }
+
+        .service-card .details {
+            font-size: 0.78rem;
+            color: var(--text-faint);
+            line-height: 1.6;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 2rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover { opacity: 0.75; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: var(--text-faint);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--text-muted); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid,
+            .services-grid--2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 45vh;
+                min-height: 300px;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { animation: fadeUp 0.6s ease-out both; }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-name">Philip Staiger</a>
+            <div class="nav-links">
+                <a href="../studio.html">Studio</a>
+                <a href="index.html" aria-current="page">Equipment</a>
+                <a href="mailto:claes-philip@staiger.se">Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="../studio-1.jpeg" alt="Boutique Studio — drums, instruments, vintage gear">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Studio Equipment</h1>
+            <p class="tagline">Boutique Studio™ · Visby</p>
+        </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="section">
+        <p class="section-header">The Gear</p>
+        <div class="body-text">
+            <p>Real instruments, a curated microphone locker and analog-friendly tools — built for sessions that capture feel, not just levels. This list covers the core studio inventory; more items will be added over time.</p>
+        </div>
+    </div>
+
+    <!-- INSTRUMENTS -->
+    <div class="section" id="instruments">
+        <p class="section-header">Instruments</p>
+        <div class="services-grid">
+
+            <!--
+            To add equipment, copy a service-card block below.
+            Pick a silhouette from images/silhouettes/ (drum-kit, drum-electronic,
+            guitar-acoustic, guitar-electric, bass-guitar, piano, bongos, handpan, mic-ldc,
+            mic-dynamic, mic-kick, mic-sdc-pair, amp-guitar, amp-bass, pedal, interface,
+            audio-interface, controller, mixer, monitors, headphones, software).
+            Use services-grid (3 col) or services-grid--2 (2 col).
+            -->
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/drum-kit.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Acoustic</span>
+                    <h3>Ludwig Silver Sparkle 1963</h3>
+                    <p class="desc">Vintage Ludwig kit — the acoustic backbone of the studio. Always set up and ready for sessions.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/guitar-acoustic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Electro-acoustic</span>
+                    <h3>Taylor GS Mini</h3>
+                    <p class="desc">Compact semi-acoustic guitar — easy to grab for writing, demos and layered acoustic parts in the studio.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/guitar-electric.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Electric</span>
+                    <h3>Fender Stratocaster</h3>
+                    <p class="desc">Synchronized tremolo electric — classic single-coil voice for leads, rhythm and studio layering.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/drum-electronic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Electronic</span>
+                    <h3>Roland TD-50</h3>
+                    <p class="desc">Flagship electronic kit — always set up alongside the Ludwig for quiet takes, demos and hybrid drum sessions.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/piano.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Keys</span>
+                    <h3>Donner stage piano</h3>
+                    <p class="desc">Stage piano for rehearsal, writing and keyboard parts — ready at the desk.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/bass-guitar.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Bass</span>
+                    <h3>Ibanez bass</h3>
+                    <p class="desc">Electric bass for sessions and rehearsals — low end on tap in the studio.</p>
+                    <p class="details">Exact model TBD</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/bongos.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Percussion</span>
+                    <h3>Meinl bongos</h3>
+                    <p class="desc">Hand-played bongo pair for groove, demos and layered percussion in the studio.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/handpan.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Percussion</span>
+                    <h3>Lidah handpan</h3>
+                    <p class="desc">Steel handpan for meditative tones, textures and atmospheric layers in sessions.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- MICROPHONES -->
+    <div class="section" id="microphones">
+        <p class="section-header">Microphones</p>
+        <div class="body-text">
+            <p>Studio locker — 14 microphones for drums, vocals, amps and acoustic instruments.</p>
+        </div>
+
+        <div class="services-grid" style="margin-top: 2rem;">
+
+            <article class="service-card service-card--wide">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-ldc.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">LDC · Cardioid</span>
+                    <h3>Neumann TLM 102</h3>
+                    <p class="desc">Large-diaphragm condenser for vocals and detailed sources — clean, present and versatile in the locker.</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-kick.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>Shure Beta 52A</h3>
+                    <p class="desc">Kick drum</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-dynamic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>Shure SM57</h3>
+                    <p class="desc">× 3 — snare, amps, instruments</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-dynamic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>Beyerdynamic Opus 39</h3>
+                    <p class="desc">Instrument / vocal dynamic</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-dynamic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>Beyerdynamic TG V30d</h3>
+                    <p class="desc">Instrument dynamic</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-dynamic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>Beyerdynamic TG V35d s</h3>
+                    <p class="desc">Instrument dynamic</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-dynamic.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Dynamic</span>
+                    <h3>TSM MT58</h3>
+                    <p class="desc">Dynamic microphone</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-ldc.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">LDC</span>
+                    <h3>TSM MT87 Mk II</h3>
+                    <p class="desc">Class A solid-state condenser</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-ldc.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">LDC</span>
+                    <h3>JJ Labs BMC2</h3>
+                    <p class="desc">Swedish large-diaphragm condenser</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-ldc.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">LDC</span>
+                    <h3>sE Electronics sE2300</h3>
+                    <p class="desc">Pattern, pad &amp; HPF switches on body</p>
+                </div>
+            </article>
+
+            <article class="service-card service-card--compact">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mic-sdc-pair.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">SDC · Pair</span>
+                    <h3>Røde NT5</h3>
+                    <p class="desc">Matched pair — overheads, acoustic guitar, percussion</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- AMPS -->
+    <div class="section" id="amps">
+        <p class="section-header">Amps</p>
+        <div class="services-grid services-grid--2">
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/amp-guitar.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Guitar</span>
+                    <h3>Vox guitar combo</h3>
+                    <p class="desc">Classic combo with diamond grille — amp-in-the-room tone for rehearsal and recording.</p>
+                    <p class="details">Exact model TBD</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/amp-bass.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Bass</span>
+                    <h3>Gallien-Krueger bass combo</h3>
+                    <p class="desc">GK bass combo for low-end sessions and band rehearsals.</p>
+                    <p class="details">Exact model TBD</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- PEDALS / INTERFACES / CONTROLLERS -->
+    <div class="section" id="pedals">
+        <p class="section-header">Pedals / Interfaces / Controllers</p>
+        <div class="services-grid">
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/pedal.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Pedal</span>
+                    <h3>Ibanez overdrive</h3>
+                    <p class="desc">Lime green Tube Screamer-style overdrive for amp-in-the-room tone.</p>
+                    <p class="details">Exact model TBD</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/interface.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Interface</span>
+                    <h3>DBT Plus Dual 600Ω</h3>
+                    <p class="desc">Balancing interface for line-level conversion — dual 600Ω outputs.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/controller.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Controller</span>
+                    <h3>Softube Console 1</h3>
+                    <p class="desc">Hardware channel-strip controller — hands-on EQ, compression and drive in the mix workflow.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- DESK / DAW -->
+    <div class="section" id="desk">
+        <p class="section-header">Desk / DAW</p>
+        <div class="services-grid">
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/mixer.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Mixer</span>
+                    <h3>Allen &amp; Heath CQ-20B</h3>
+                    <p class="desc">Digital mixer for studio sessions and live use — the desk anchor for recording and rehearsal.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/audio-interface.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Interface</span>
+                    <h3>Universal Audio Volt 476</h3>
+                    <p class="desc">USB-C audio interface — 4-in/4-out with Vintage preamp mode and analog 76 compressor. Flexible secondary interface alongside the CQ desk.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/software.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Software</span>
+                    <h3>Logic Pro &amp; plugins</h3>
+                    <p class="desc">Primary DAW for recording, editing and mixing — with UADx plugin processing and Superior Drummer 3 for drum production.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- MONITORING -->
+    <div class="section" id="monitoring">
+        <p class="section-header">Monitoring</p>
+        <div class="services-grid services-grid--2">
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/monitors.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Monitors</span>
+                    <h3>DynAudio monitors</h3>
+                    <p class="desc">Studio reference monitors for tracking, editing and mix decisions at the desk.</p>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-silhouette" aria-hidden="true">
+                    <img src="images/silhouettes/headphones.svg" alt="">
+                </div>
+                <div class="service-card-body">
+                    <span class="service-tag">Headphones × 2</span>
+                    <h3>Beyerdynamic DT 770 PRO</h3>
+                    <p class="desc">80 Ω closed-back studio headphones — two pairs for tracking and cue mixes.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Book a session</h2>
+        <p>Record with this gear at Boutique Studio™ · Visby, Gotland</p>
+        <a href="mailto:claes-philip@staiger.se" class="cta-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            claes-philip@staiger.se
+        </a>
+        <br>
+        <a href="../studio.html" class="back-link">← Back to Boutique Studio™</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Boutique Studio™ · Visby · Gotland · <a href="../index.html">Philip Staiger</a></p>
+    </footer>
+
+</body>
+</html>
