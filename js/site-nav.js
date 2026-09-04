@@ -3,15 +3,6 @@
     if (!mount) return;
 
     var current = mount.getAttribute('data-current') || '';
-    var script = document.currentScript;
-    var base = '';
-
-    if (script && script.getAttribute('src')) {
-        base = script.getAttribute('src').replace(/js\/site-nav\.js(\?.*)?$/, '');
-    }
-
-    var homeHref = base + 'index.html';
-    var listenHref = base ? homeHref + '#listen' : '#listen';
 
     var spotifyIcon =
         '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
@@ -19,10 +10,10 @@
         '</svg>';
 
     var links = [
-        { id: 'listen', label: 'Listen', href: listenHref },
-        { id: 'studio', label: 'Studio', href: base + 'studio.html' },
-        { id: 'equipment', label: 'Equipment', href: base + 'equipment/' },
-        { id: 'services', label: 'Services', href: base + 'studio.html#services' },
+        { id: 'listen', label: 'Listen', href: '/#listen' },
+        { id: 'studio', label: 'Studio', href: '/studio.html' },
+        { id: 'equipment', label: 'Equipment', href: '/equipment/' },
+        { id: 'services', label: 'Services', href: '/studio.html#services' },
         { id: 'contact', label: 'Contact', href: 'mailto:claes-philip@staiger.se' }
     ];
 
@@ -34,7 +25,7 @@
     mount.outerHTML =
         '<nav>' +
         '<div class="nav-inner">' +
-        '<a href="' + homeHref + '" class="nav-name">Philip Staiger</a>' +
+        '<a href="/" class="nav-name">Philip Staiger</a>' +
         '<div class="nav-links">' +
         links.map(linkHtml).join('') +
         '<a href="https://open.spotify.com/artist/0rezbH452IX4W0tMudVba1" target="_blank" rel="noopener" class="nav-spotify" aria-label="Spotify">' +
