@@ -56,6 +56,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site-nav.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -80,56 +81,6 @@
             color: var(--text);
             min-height: 100vh;
         }
-
-        /* ---- NAV ---- */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(10,10,15,0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-name {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--text);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .nav-name:hover { opacity: 0.7; }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--text); }
 
         /* ---- HERO ---- */
         .hero {
@@ -349,6 +300,11 @@
             gap: 1.5rem;
         }
 
+        .release-cards:has(.release-card:only-child) {
+            grid-template-columns: 1fr;
+            max-width: 360px;
+        }
+
         .release-card {
             display: flex;
             flex-direction: column;
@@ -414,7 +370,6 @@
 
         /* ---- SINGLES LIST ---- */
         .singles-list {
-            margin-top: 2.5rem;
             border-top: 1px solid var(--border);
         }
 
@@ -422,10 +377,14 @@
             margin-top: 2.5rem;
         }
 
+        .release-block + .release-block {
+            margin-top: 2.5rem;
+        }
+
         .single-row {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
             gap: 1rem;
             padding: 0.9rem 0;
             border-bottom: 1px solid var(--border);
@@ -442,16 +401,10 @@
             font-size: 0.85rem;
         }
 
-        .single-listen {
+        .single-row .release-link.spotify {
             flex-shrink: 0;
+            padding: 0.45rem 1rem;
             font-size: 0.8rem;
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .single-listen:hover {
-            opacity: 0.7;
         }
 
         /* ---- STUDIO ---- */
@@ -713,21 +666,8 @@
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="nav-inner">
-            <a href="https://staiger.se" class="nav-name">Claes-Philip Staiger</a>
-            <div class="nav-links">
-                <a href="#listen">Listen</a>
-                <a href="studio.html">Studio</a>
-                <a href="equipment/">Equipment</a>
-                <a href="mailto:claes-philip@staiger.se">Contact</a>
-                <a href="https://open.spotify.com/artist/0rezbH452IX4W0tMudVba1" target="_blank" rel="noopener">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div id="site-nav" data-current="listen"></div>
+    <script src="js/site-nav.js"></script>
 
     <!-- HERO -->
     <div class="hero">
@@ -760,41 +700,26 @@
         <!-- Out now -->
         <div class="music-group">
             <h2 class="music-group-title">Out now</h2>
-            <div class="listen-grid">
+
+            <!-- Featured: Texter av storebror (Jul 10) -->
+            <div class="listen-grid release-block">
                 <div class="spotify-embed">
-                    <iframe src="https://open.spotify.com/embed/album/3Ek6W1iUOjhNB8PuVqMcAy?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe src="https://open.spotify.com/embed/album/4EbCcfngYxLlZDas6D9vh6?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Texter av storebror on Spotify"></iframe>
                 </div>
                 <div class="release-info">
-                    <h3>Sessions: I Sand och Moll</h3>
-                    <p class="release-featuring">feat. Blomgren</p>
-                    <p class="release-meta">Album · April 10, 2026 · 7 tracks</p>
-                    <p class="release-description">Debut album recorded on Gotland with singer-songwriter Fredrik Blomgren. Desert blues meets Nordic folk — analog drums, real instruments and musicians from the Gotland music scene contributing violin, saxophone, trumpet and three-part choir.</p>
+                    <h3>Texter av storebror</h3>
+                    <p class="release-meta">EP · July 10, 2026 · 4 tracks</p>
                     <div class="release-actions">
-                        <a href="https://open.spotify.com/album/3Ek6W1iUOjhNB8PuVqMcAy" class="release-link spotify" target="_blank" rel="noopener">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                            Listen on Spotify
-                        </a>
-                        <a href="i-sand-och-moll.html" class="release-link">
-                            Tracklist & credits →
+                        <a href="https://open.spotify.com/album/4EbCcfngYxLlZDas6D9vh6" class="release-link spotify" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                            Listen
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="singles-list">
-                <div class="single-row">
-                    <span class="single-title">Vi är en blues <em>feat. Blomgren</em></span>
-                    <a href="https://open.spotify.com/track/4UEWLxXChFF0nfiGvR5kSf" class="single-listen" target="_blank" rel="noopener">Listen →</a>
-                </div>
-                <div class="single-row">
-                    <span class="single-title">Över floden <em>feat. Blomgren</em></span>
-                    <a href="https://open.spotify.com/album/4BKATaUtjVoJgl8EQKdaJY" class="single-listen" target="_blank" rel="noopener">Listen →</a>
-                </div>
-                <div class="single-row">
-                    <span class="single-title">I det svarta <em>feat. Blomgren</em></span>
-                    <a href="https://open.spotify.com/track/2mur76OXjlIboykAmflBVv" class="single-listen" target="_blank" rel="noopener">Listen →</a>
-                </div>
-            </div>
-            <div class="release-cards">
+
+            <!-- Bredvid (Jul 3) -->
+            <div class="release-cards release-block">
                 <div class="release-card">
                     <div class="release-card-art">
                         <img src="bredvid.jpg" alt="Bredvid — Philip Staiger">
@@ -804,24 +729,56 @@
                         <h3>Bredvid</h3>
                         <p class="release-card-meta">Single · July 3, 2026</p>
                         <a href="https://open.spotify.com/album/4OGApLUMGrPpnxYUeEJKsD" class="release-link spotify" target="_blank" rel="noopener">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
                             Listen
                         </a>
                     </div>
                 </div>
-                <div class="release-card">
-                    <div class="release-card-art">
-                        <img src="texter-av-storebror.jpg" alt="Texter av storebror — Philip Staiger">
-                        <span class="date-badge">Jul 10</span>
-                    </div>
-                    <div class="release-card-body">
-                        <h3>Texter av storebror</h3>
-                        <p class="release-card-meta">EP · July 10, 2026 · 4 tracks</p>
-                        <a href="https://open.spotify.com/album/4EbCcfngYxLlZDas6D9vh6" class="release-link spotify" target="_blank" rel="noopener">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </div>
+
+            <!-- Sessions: I Sand och Moll (April) -->
+            <div class="listen-grid release-block">
+                <div class="spotify-embed">
+                    <iframe src="https://open.spotify.com/embed/album/3Ek6W1iUOjhNB8PuVqMcAy?utm_source=generator&theme=0" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Sessions: I Sand och Moll on Spotify"></iframe>
+                </div>
+                <div class="release-info">
+                    <h3>Sessions: I Sand och Moll</h3>
+                    <p class="release-featuring">feat. Blomgren</p>
+                    <p class="release-meta">Album · April 10, 2026 · 7 tracks</p>
+                    <p class="release-description">Debut album recorded on Gotland with singer-songwriter Fredrik Blomgren. Desert blues meets Nordic folk — analog drums, real instruments and musicians from the Gotland music scene contributing violin, saxophone, trumpet and three-part choir.</p>
+                    <div class="release-actions">
+                        <a href="https://open.spotify.com/album/3Ek6W1iUOjhNB8PuVqMcAy" class="release-link spotify" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
                             Listen
                         </a>
+                        <a href="i-sand-och-moll.html" class="release-link">
+                            Tracklist &amp; credits →
+                        </a>
                     </div>
+                </div>
+            </div>
+
+            <div class="singles-list release-block">
+                <div class="single-row">
+                    <span class="single-title">Vi är en blues <em>feat. Blomgren</em></span>
+                    <a href="https://open.spotify.com/track/4UEWLxXChFF0nfiGvR5kSf" class="release-link spotify" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Listen
+                    </a>
+                </div>
+                <div class="single-row">
+                    <span class="single-title">Över floden <em>feat. Blomgren</em></span>
+                    <a href="https://open.spotify.com/album/4BKATaUtjVoJgl8EQKdaJY" class="release-link spotify" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Listen
+                    </a>
+                </div>
+                <div class="single-row">
+                    <span class="single-title">I det svarta <em>feat. Blomgren</em></span>
+                    <a href="https://open.spotify.com/track/2mur76OXjlIboykAmflBVv" class="release-link spotify" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Listen
+                    </a>
                 </div>
             </div>
         </div>
