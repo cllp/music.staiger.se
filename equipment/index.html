@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Equipment — Boutique Studio™ | Philip Staiger</title>
+    <meta name="description" content="Studio equipment at Boutique Studio™ in Visby, Gotland — Ludwig drums, studio microphones, amps, pedals and Allen & Heath + Logic Pro workflow.">
+    <meta name="keywords" content="studio equipment Gotland, microphones Visby, Ludwig drums, recording gear, Boutique Studio, Philip Staiger">
+    <link rel="canonical" href="https://music.staiger.se/equipment/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Studio Equipment — Boutique Studio™">
+    <meta property="og:description" content="Drums, microphones, amps and recording tools at Boutique Studio™ in Visby, Gotland.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://music.staiger.se/equipment/">
+    <meta property="og:image" content="https://music.staiger.se/equipment/images/hero.jpg">
+    <meta property="og:site_name" content="Philip Staiger Music">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Studio Equipment — Boutique Studio™">
+    <meta name="twitter:description" content="Drums, microphones, amps and recording tools at Boutique Studio™ in Visby, Gotland.">
+    <meta name="twitter:image" content="https://music.staiger.se/equipment/images/hero.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #e8e4df;
+            --text-muted: #b0aaa2;
+            --text-dim: #8a8580;
+            --text-faint: #5a5550;
+            --accent: #c9a84c;
+            --accent-bg: rgba(201,168,76,0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-name:hover { opacity: 0.7; }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a[aria-current="page"] { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 55vh;
+            min-height: 360px;
+            max-height: 560px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 45%;
+            filter: brightness(0.55) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 55%, rgba(10,10,15,0.35) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 3rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 400;
+            color: #f0ece6;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-content .tagline {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem;
+        }
+
+        .section-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-intro {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        /* GEAR CARDS */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .gear-grid--compact {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gear-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .gear-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .gear-card--wide {
+            grid-column: 1 / -1;
+        }
+
+        .gear-card--featured {
+            display: grid;
+            grid-template-columns: minmax(200px, 280px) 1fr;
+            align-items: stretch;
+        }
+
+        .gear-card--featured .gear-card-photo {
+            aspect-ratio: auto;
+            min-height: 100%;
+        }
+
+        .gear-card--featured .gear-card-photo img {
+            object-position: center 60%;
+        }
+
+        @media (max-width: 768px) {
+            .gear-card--featured {
+                grid-template-columns: 1fr;
+            }
+
+            .gear-card--featured .gear-card-photo {
+                aspect-ratio: 4/3;
+                min-height: auto;
+            }
+        }
+
+        .gear-card-photo {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(201,168,76,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(10,10,15,0.4) 100%);
+            position: relative;
+        }
+
+        .gear-card-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-bottom: 1px solid var(--border);
+            pointer-events: none;
+        }
+
+        .gear-card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.88) contrast(1.05);
+            transition: filter 0.3s;
+        }
+
+        .gear-card:hover .gear-card-photo img {
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .gear-card-photo.is-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 8px,
+                rgba(255,255,255,0.015) 8px,
+                rgba(255,255,255,0.015) 9px
+            );
+        }
+
+        .gear-card-photo.is-placeholder img { display: none; }
+
+        .gear-card-photo--portrait { aspect-ratio: 3/4; }
+        .gear-card-photo--wide { aspect-ratio: 16/10; }
+
+        .gear-card-body {
+            padding: 1.35rem 1.5rem 1.5rem;
+        }
+
+        .gear-card--compact .gear-card-body {
+            padding: 1rem 1.15rem 1.15rem;
+        }
+
+        .gear-tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 0.18rem 0.55rem;
+            border-radius: 3px;
+            margin-bottom: 0.55rem;
+        }
+
+        .gear-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.35rem;
+            line-height: 1.25;
+        }
+
+        .gear-card--compact h3 {
+            font-size: 0.95rem;
+        }
+
+        .gear-desc {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .gear-card--compact .gear-desc {
+            font-size: 0.75rem;
+        }
+
+        .gear-note {
+            display: inline-block;
+            font-size: 0.72rem;
+            color: var(--text-faint);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        /* DESK / DAW */
+        .desk-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 2rem 1.75rem;
+        }
+
+        .desk-block ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .desk-block li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            padding: 0.55rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .desk-block li:last-child { border-bottom: none; }
+
+        .desk-block li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 1rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-section p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover { opacity: 0.75; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        footer a {
+            color: var(--text-faint);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--text-muted); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .gear-grid--compact {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gear-grid,
+            .gear-grid--compact {
+                grid-template-columns: 1fr;
+            }
+
+            .gear-card--wide {
+                grid-column: auto;
+            }
+
+            .hero {
+                height: 42vh;
+                min-height: 280px;
+            }
+
+            .section {
+                padding: 2.75rem 1.5rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section { animation: fadeUp 0.6s ease-out both; }
+        .section:nth-child(3) { animation-delay: 0.08s; }
+        .section:nth-child(4) { animation-delay: 0.12s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-name">Philip Staiger</a>
+            <div class="nav-links">
+                <a href="../studio.html">Studio</a>
+                <a href="index.html" aria-current="page">Equipment</a>
+                <a href="mailto:claes-philip@staiger.se">Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="images/hero.jpg" alt="Boutique Studio — drums and instruments">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Studio Equipment</h1>
+            <p class="tagline">Boutique Studio™ · Visby</p>
+        </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="section">
+        <p class="section-header">The Gear</p>
+        <p class="section-intro">Real instruments, a curated microphone locker and analog-friendly tools — built for sessions that capture feel, not just levels. This list covers the core studio inventory; more items will be added over time.</p>
+    </div>
+
+    <!-- INSTRUMENTS -->
+    <div class="section" id="instruments">
+        <p class="section-header">Instruments</p>
+        <div class="gear-grid">
+
+            <!--
+            To add a gear card, copy this block into the section grid:
+            <article class="gear-card">
+                <div class="gear-card-photo">
+                    <img src="images/your-photo.jpg" alt="Item name" loading="lazy"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">Category</span>
+                    <h3>Item Name</h3>
+                    <p class="gear-desc">Short description.</p>
+                </div>
+            </article>
+            For text-only cards, omit the photo div and add class gear-card--compact to the article.
+            -->
+
+            <article class="gear-card">
+                <div class="gear-card-photo is-placeholder">
+                    <img src="images/ludwig-kit.jpg" alt="Ludwig Silver Sparkle 1963 drum kit" loading="lazy"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">Acoustic</span>
+                    <h3>Ludwig Silver Sparkle 1963</h3>
+                    <p class="gear-desc">Vintage Ludwig kit — the acoustic backbone of the studio. Always set up and ready for sessions.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- MICROPHONES -->
+    <div class="section" id="microphones">
+        <p class="section-header">Microphones</p>
+        <p class="section-intro">Studio locker — 14 microphones for drums, vocals, amps and acoustic instruments.</p>
+
+        <div class="gear-grid" style="margin-bottom: 1.5rem;">
+            <article class="gear-card gear-card--wide gear-card--featured">
+                <div class="gear-card-photo gear-card-photo--portrait">
+                    <img src="images/neumann-tlm102.jpg" alt="Neumann TLM 102 large-diaphragm condenser" loading="lazy"
+                         style="object-position: center 65%;"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">LDC · Cardioid</span>
+                    <h3>Neumann TLM 102</h3>
+                    <p class="gear-desc">Large-diaphragm condenser for vocals and detailed sources — clean, present and versatile in the locker.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="gear-grid gear-grid--compact">
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>Shure Beta 52A</h3>
+                    <p class="gear-desc">Kick drum</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>Shure SM57</h3>
+                    <p class="gear-desc">× 3 — snare, amps, instruments</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>Beyerdynamic Opus 39</h3>
+                    <p class="gear-desc">Instrument / vocal dynamic</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>Beyerdynamic TG V30d</h3>
+                    <p class="gear-desc">Instrument dynamic</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>Beyerdynamic TG V35d s</h3>
+                    <p class="gear-desc">Instrument dynamic</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">Dynamic</span>
+                    <h3>TSM MT58</h3>
+                    <p class="gear-desc">Dynamic microphone</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">LDC</span>
+                    <h3>TSM MT87 Mk II</h3>
+                    <p class="gear-desc">Class A solid-state condenser</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">LDC</span>
+                    <h3>JJ Labs BMC2</h3>
+                    <p class="gear-desc">Swedish large-diaphragm condenser</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">LDC</span>
+                    <h3>sE Electronics sE2300</h3>
+                    <p class="gear-desc">Pattern, pad &amp; HPF switches on body</p>
+                </div>
+            </article>
+
+            <article class="gear-card gear-card--compact">
+                <div class="gear-card-body">
+                    <span class="gear-tag">SDC · Pair</span>
+                    <h3>Røde NT5</h3>
+                    <p class="gear-desc">Matched pair — overheads, acoustic guitar, percussion</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- AMPS -->
+    <div class="section" id="amps">
+        <p class="section-header">Amps</p>
+        <div class="gear-grid">
+
+            <article class="gear-card gear-card--wide">
+                <div class="gear-card-photo gear-card-photo--wide">
+                    <img src="images/vox-gk-amps.jpg" alt="Vox guitar combo and Gallien-Krueger bass combo" loading="lazy"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">Guitar &amp; Bass</span>
+                    <h3>Vox guitar combo &amp; Gallien-Krueger bass combo</h3>
+                    <p class="gear-desc">Classic Vox guitar combo with the signature diamond grille, paired with a Gallien-Krueger bass combo for rehearsal and recording.</p>
+                    <span class="gear-note">Exact models TBD</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- PEDALS / INTERFACES / CONTROLLERS -->
+    <div class="section" id="pedals">
+        <p class="section-header">Pedals / Interfaces / Controllers</p>
+        <div class="gear-grid">
+
+            <article class="gear-card">
+                <div class="gear-card-photo">
+                    <img src="images/ibanez-dbt-plus.jpg" alt="Ibanez overdrive pedal and DBT Plus balancing interface" loading="lazy"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">Pedal &amp; Interface</span>
+                    <h3>Ibanez overdrive &amp; DBT Plus</h3>
+                    <p class="gear-desc">Lime green Tube Screamer-style overdrive for amp-in-the-room tone, plus a DBT Plus Dual 600Ω Balancing Interface for line-level conversion.</p>
+                    <span class="gear-note">Ibanez model TBD</span>
+                </div>
+            </article>
+
+            <article class="gear-card">
+                <div class="gear-card-photo">
+                    <img src="images/softube-console-1.jpg" alt="Softube Console 1 hardware controller" loading="lazy"
+                         onerror="this.parentElement.classList.add('is-placeholder')">
+                </div>
+                <div class="gear-card-body">
+                    <span class="gear-tag">Controller</span>
+                    <h3>Softube Console 1</h3>
+                    <p class="gear-desc">Hardware channel-strip controller — hands-on EQ, compression and drive in the mix workflow.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- DESK / DAW -->
+    <div class="section" id="desk">
+        <p class="section-header">Desk / DAW</p>
+        <div class="desk-block">
+            <h2>Mix &amp; production</h2>
+            <p class="section-intro" style="margin-bottom: 0;">Console, computer and core software — the bridge between live takes and finished mixes.</p>
+            <ul>
+                <li><strong>Allen &amp; Heath CQ-20B</strong> — digital mixer for studio and live use</li>
+                <li><strong>Logic Pro</strong> — primary DAW for recording, editing and mixing</li>
+                <li><strong>UADx plugins</strong> — Universal Audio processing in the box</li>
+                <li><strong>Superior Drummer 3</strong> — drum production and reinforcement</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Book a session</h2>
+        <p>Record with this gear at Boutique Studio™ · Visby, Gotland</p>
+        <a href="mailto:claes-philip@staiger.se" class="cta-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            claes-philip@staiger.se
+        </a>
+        <br>
+        <a href="../studio.html" class="back-link">← Back to Boutique Studio™</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Boutique Studio™ · Visby · Gotland · <a href="../index.html">Philip Staiger</a></p>
+    </footer>
+
+</body>
+</html>
